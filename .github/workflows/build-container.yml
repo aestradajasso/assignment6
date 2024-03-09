@@ -12,14 +12,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      -name: Login to Docker registry
-       uses: docker/login-action@v1
+      - name: Login to Docker registry
+        uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
--name: Build and push container
+      - name: Build and push container
         run: |
-          docker build -t my-container . 
-          docker tag my-container <aestradajasso>/assignment6:prod
-          docker push <aestradajasso>/assignment6:prod
+          docker build -t my-container .
+          docker tag my-container aestradajasso/assignment6:prod
+          docker push aestradajasso/assignment6:prod
